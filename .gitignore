@@ -1,0 +1,27 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Audio (too large for git)
+audio/raw/
+audio/normalized/
+
+# Generated data
+analysis/spectrogram_data/
+analysis/previews/
+
+# Manim render output
+media/
+
+# Final video output
+output/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
