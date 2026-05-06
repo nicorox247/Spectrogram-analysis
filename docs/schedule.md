@@ -7,7 +7,7 @@ The schedule below is aggressive but workable. The key is sequencing: do the thi
 ## Day 0: May 6 (today)
 
 - [ ] Email professor with project proposal for explicit approval (note: rubric says "involving music that I have approved")
-- [ ] Set up project folder, install dependencies, verify manim renders the smoke test
+- [x] Set up project folder, install dependencies, verify manim renders the smoke test
 - [ ] Begin gathering source materials (start library/online searches for WAVs)
 
 ## Day 1: May 7
