@@ -6,10 +6,13 @@ Loads pre-computed .npy data — do not recompute here.
 from pathlib import Path
 import argparse
 import json
+import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import librosa.display
+
+AUDIO_DIR = Path("audio/normalized")
 
 DATA_DIR = Path("analysis/spectrogram_data")
 OUTPUT_DIR = Path("output")
@@ -72,8 +75,8 @@ def main() -> None:
         spine.set_edgecolor("white")
 
     for hz, label in [(30, "30 Hz"), (60, "60 Hz"), (100, "100 Hz")]:
-        ax.axhline(hz, color="white", alpha=0.3, linestyle="--", linewidth=0.8)
-        ax.text(0.01, hz, label, color="white", alpha=0.6, fontsize=8,
+        ax.axhline(hz, color="black", alpha=0.6, linestyle="--", linewidth=0.8)
+        ax.text(0.01, hz, label, color="black", alpha=0.9, fontsize=8,
                 transform=ax.get_yaxis_transform(), va="bottom")
 
     fig.colorbar(img, ax=ax, format="%+2.0f dB").ax.yaxis.set_tick_params(color="white", labelcolor="white")
@@ -104,13 +107,31 @@ def main() -> None:
     )
 
     out_path = OUTPUT_DIR / f"{TRACK}_{int(T_START)}s-{int(T_END)}s.mp4"
+    silent_path = OUTPUT_DIR / f"{TRACK}_{int(T_START)}s-{int(T_END)}s_silent.mp4"
+
     writer = animation.FFMpegWriter(
         fps=FPS, bitrate=4000,
         codec="libx264",
         extra_args=["-pix_fmt", "yuv420p"],
     )
-    ani.save(out_path, dpi=150, writer=writer)
-    print(f"Saved: {out_path}")
+    ani.save(silent_path, dpi=150, writer=writer)
+
+    # Mux the matching audio clip from the normalized WAV
+    audio_path = AUDIO_DIR / f"{TRACK}.wav"
+    if audio_path.exists():
+        duration = T_END - T_START
+        subprocess.run([
+            "ffmpeg", "-y",
+            "-i", str(silent_path),
+            "-ss", str(T_START), "-t", str(duration), "-i", str(audio_path),
+            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+            "-shortest", str(out_path),
+        ], check=True, capture_output=True)
+        silent_path.unlink()
+        print(f"Saved (with audio): {out_path}")
+    else:
+        silent_path.rename(out_path)
+        print(f"Saved (no audio found): {out_path}")
 
 
 if __name__ == "__main__":

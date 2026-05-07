@@ -44,8 +44,8 @@ def render_preview(npy_path: Path, json_path: Path, output_path: Path) -> None:
 
     # Reference lines for key frequencies
     for hz, label in [(30, "30 Hz"), (60, "60 Hz"), (100, "100 Hz")]:
-        ax.axhline(hz, color="white", alpha=0.3, linestyle="--", linewidth=0.8)
-        ax.text(0.02, hz, label, color="white", alpha=0.7, fontsize=8,
+        ax.axhline(hz, color="black", alpha=0.6, linestyle="--", linewidth=0.8)
+        ax.text(0.02, hz, label, color="black", alpha=0.9, fontsize=8,
                 transform=ax.get_yaxis_transform(), va="bottom")
 
     plt.tight_layout()
