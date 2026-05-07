@@ -4,6 +4,7 @@ Loads pre-computed .npy data — do not recompute here.
 """
 
 from pathlib import Path
+import argparse
 import json
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,17 +14,23 @@ import librosa.display
 DATA_DIR = Path("analysis/spectrogram_data")
 OUTPUT_DIR = Path("output")
 
-TRACK = "Bach_Fugue_in_C-minor"
-T_START = 56.0   # seconds
-T_END   = 77.0   # seconds
-
-F_MIN = 20
-F_MAX = 8000
+F_MIN = 0
+F_MAX = 17000
 CMAP  = "magma"
 FPS   = 30
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Animate a spectrogram segment.")
+    parser.add_argument("track", help="Track name (must match filename in analysis/spectrogram_data/, without extension)")
+    parser.add_argument("start", type=float, help="Start time in seconds")
+    parser.add_argument("end", type=float, help="End time in seconds")
+    args = parser.parse_args()
+
+    TRACK   = args.track
+    T_START = args.start
+    T_END   = args.end
+
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     npy_path  = DATA_DIR / f"{TRACK}.npy"
@@ -73,9 +80,11 @@ def main() -> None:
     fig.tight_layout()
 
     # Black rectangle covering the unrevealed right portion
+    # Use actual axis limits, not F_MIN/F_MAX, so the mask always covers the full plot
     x_max = n_cols * secs_per_bin
+    y_min, y_max = ax.get_ylim()
     from matplotlib.patches import Rectangle
-    mask = Rectangle((0, F_MIN), x_max, F_MAX - F_MIN, color="black", zorder=3)
+    mask = Rectangle((0, y_min), x_max, y_max - y_min, color="black", zorder=3)
     ax.add_patch(mask)
 
     playhead = ax.axvline(0, color="white", linewidth=1.5, alpha=0.85, zorder=4)

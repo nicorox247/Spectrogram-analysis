@@ -69,6 +69,9 @@ def main() -> None:
             print(f"  SKIPPED (no metadata): {npy.name}")
             continue
         out_path = PREVIEW_DIR / f"{npy.stem}.png"
+        if out_path.exists():
+            print(f"  SKIPPED (already rendered): {npy.name}")
+            continue
         render_preview(npy, json_path, out_path)
         print(f"  {npy.name} -> {out_path.name}")
     print("Done.")

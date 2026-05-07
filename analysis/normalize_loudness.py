@@ -46,6 +46,9 @@ def main() -> None:
     print(f"Normalizing {len(wavs)} files to {TARGET_LUFS} LUFS...")
     for wav in wavs:
         out = OUTPUT_DIR / f"{wav.stem}.wav"
+        if out.exists():
+            print(f"  SKIPPED (already normalized): {wav.name}")
+            continue
         normalize_file(wav, out)
     print("Done.")
 

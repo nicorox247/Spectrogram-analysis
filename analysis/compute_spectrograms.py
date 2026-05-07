@@ -60,11 +60,14 @@ def main() -> None:
 
     print(f"Computing spectrograms for {len(wavs)} files...")
     for wav in wavs:
-        S_db, metadata = compute_spectrogram(wav)
-
         npy_path = OUTPUT_DIR / f"{wav.stem}.npy"
         json_path = OUTPUT_DIR / f"{wav.stem}.json"
 
+        if npy_path.exists() and json_path.exists():
+            print(f"  SKIPPED (already computed): {wav.name}")
+            continue
+
+        S_db, metadata = compute_spectrogram(wav)
         np.save(npy_path, S_db)
         with json_path.open("w") as f:
             json.dump(metadata, f, indent=2)
