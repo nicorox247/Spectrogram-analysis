@@ -23,7 +23,7 @@ A canonical track for this project must:
 
 ### Selection Status
 
-- [ ] Bach organ piece selected: _____
+- [x] Bach organ piece selected: Passacaglia and Fugue in C minor (BWV 582) — `Bach_Fugue_in_C-minor.wav` acquired, spectrogram generated
 - [ ] Beethoven excerpt selected: _____
 - [ ] Source files acquired and verified lossless
 
@@ -92,7 +92,7 @@ The aesthetic break: synthesizer/electronic processing and sound system culture 
 
 ### Selection Status
 
-- [ ] Primary Future track selected: _____
+- [x] Primary Future track selected: Mask Off (2017) — `Future_Mask_off.wav` acquired, spectrogram generated, bimodal signature confirmed
 - [ ] Optional historical 808 reference (early hip-hop): _____
 - [ ] Source files acquired and verified lossless
 

@@ -8,7 +8,7 @@ The schedule below is aggressive but workable. The key is sequencing: do the thi
 
 - [ ] Email professor with project proposal for explicit approval (note: rubric says "involving music that I have approved")
 - [x] Set up project folder, install dependencies, verify manim renders the smoke test
-- [ ] Begin gathering source materials (start library/online searches for WAVs)
+- [x] Begin gathering source materials — Bach Fugue in C minor and Future - Mask Off acquired
 
 ## Day 1: May 7
 
@@ -18,9 +18,9 @@ The schedule below is aggressive but workable. The key is sequencing: do the thi
 
 ## Day 2: May 8
 
-- [ ] Run normalization pipeline on all candidates
-- [ ] Run spectrogram computation on all candidates
-- [ ] Generate matplotlib preview PNGs side by side
+- [x] Run normalization pipeline on all candidates (skip logic added — won't re-process existing files)
+- [x] Run spectrogram computation on all candidates (skip logic added)
+- [x] Generate matplotlib preview PNGs side by side (skip logic added)
 - [ ] **Pick canonical tracks for each section** (commit and don't second-guess)
 - [ ] Update `docs/tracks.md` with final selections
 - [ ] Draft script sections 3 and 4
@@ -28,7 +28,7 @@ The schedule below is aggressive but workable. The key is sequencing: do the thi
 ## Day 3: May 9
 
 - [ ] Build the manim spectrogram explainer scene (section 2 of video). This is the most complex animation, get it done early.
-- [ ] Build matplotlib animation template for per-track spectrograms with sweeping playhead
+- [x] Build matplotlib animation template for per-track spectrograms with sweeping playhead (reveal effect, CLI args, QuickTime-compatible H.264)
 - [ ] Render preview MP4s for sections 3-4
 - [ ] Draft script sections 5 and 6
 
