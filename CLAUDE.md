@@ -4,13 +4,15 @@ This file gives Claude Code persistent context for this project. Read it at the 
 
 ## Project Summary
 
-This is a final project for a Music Humanities course at Columbia. The deliverable is a ~20-minute video essay arguing that the audible floor of popular music has descended by roughly an octave over the past fifty years, enabled by electronic sound generation and subwoofer-capable playback technology. The argument is supported by spectral analysis (Fourier-based spectrograms) of canonical recordings from four traditions: acoustic classical, rock, dub/electronic, and hip-hop.
+This is a final project for a Music Humanities course at Columbia. The deliverable is a ~20-minute video essay tracing how Joseph Fourier's early-1800s mathematics — developed to study heat conduction — became the secret foundation of nearly every form of modern sound manipulation: synthesizers, samplers, Auto-Tune, drum machines, and digital audio production.
 
 **Deadline: May 13, 2026.**
 
 ## Working Thesis
 
-The lower edge of music's audible spectrum has descended by roughly an octave over the past fifty years, from the ~40 Hz floor of acoustic instruments to the sub-30 Hz territory routine in contemporary popular music. This shift is technological, not stylistic, and it has been aesthetically interpreted differently by rock, dub/electronic music, and hip-hop. The spectrograms reveal three distinct theories of what bass is and what it does.
+Joseph Fourier's work on heat conduction, made computationally practical by the Cooley-Tukey FFT algorithm in 1965, became the mathematical foundation for synthesizers, samplers, Auto-Tune, MP3 compression, and digital audio workstations. The video traces this lineage by analyzing the spectrograms of acoustic instruments and contrasting them with synthesized and digitally processed sounds. Tone is pedagogical and warm — closer to 3Blue1Brown than to an academic essay.
+
+**Narrative arc:** Hook → Establish the FT as an *analytical* tool only → Use it as a microscope on acoustic instruments → Pivot: the FFT arrives and you can run the process *in reverse* → Cascade of consequences (synthesis, sampling, Auto-Tune) → Reflection → Close.
 
 ## Project Structure
 
@@ -80,8 +82,8 @@ Routine "spectrogram with sweeping playhead" sections use matplotlib `FuncAnimat
 
 ## What "Done" Looks Like
 
-- ~20 minutes of video, mostly voiceover discourse with synchronized spectrogram visualizations
-- Audio examples total no more than 2 minutes (per rubric)
+- ~20 minutes of video, mostly voiceover with synchronized spectrogram visualizations
+- Audio examples total no more than 2 minutes (per rubric) — ~8 short clips planned
 - Cited 5+ scholarly sources (see `docs/sources.md`)
 - PDF of sources with embedded link to private video on Google Drive or Vimeo
 - Submitted to Canvas by May 13, 2026
@@ -89,18 +91,17 @@ Routine "spectrogram with sweeping playhead" sections use matplotlib `FuncAnimat
 ## Things to Avoid
 
 - Don't recompute spectrograms inside manim's render loop (slow, wasteful)
-- Don't use linear frequency scale (compresses bass into invisibility)
+- Don't use linear frequency scale (compresses harmonics into invisibility)
 - Don't compare unnormalized tracks (dishonest)
 - Don't use lossy audio sources (Spotify rips have artifacts that show up in spectrograms)
 - Don't try to fully animate every spectrogram in manim — fall back to matplotlib for routine cases
-- Don't bite off more than you can chew with manim — the project's argument is more important than maximally polished animations
+- Don't introduce the synthesis/reverse-FT concept before Section 4 — the dramatic reveal depends on the viewer not seeing it coming
 
 ## Open Questions / Decisions Pending
 
-- Final track selection per genre (testing phase, see `docs/tracks.md`)
-- Whether to use a Bach organ piece or Beethoven symphony as primary acoustic baseline (probably both, briefly)
+- Final audio example selection per section (bar is "clearly illustrates the point," not "canonically iconic")
 - Voiceover recording setup (room, mic)
 
 ## When in Doubt
 
-The argument is the project. Spectrograms are evidence for the argument. Animations are presentation of the evidence. If a technical decision is taking too long, choose the path that lets the argument come through clearly and move on.
+The narrative is the project. Spectrograms are the visual evidence. Animations are presentation of that evidence. If a technical decision is taking too long, choose the path that lets the story come through clearly and move on.

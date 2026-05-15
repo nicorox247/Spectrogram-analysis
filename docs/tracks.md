@@ -1,132 +1,106 @@
 # Tracks
 
-This file tracks candidate recordings, testing decisions, and final selections. Update as you go.
+This file lists audio examples needed per section. The bar is **"clearly illustrates the point"** — not canonically iconic. Isolated samples and clean single-note recordings are often better than famous records for spectrogram work.
 
 ## Selection Criteria
 
-A canonical track for this project must:
-1. Be spectrally **iconic** of its tradition (not just a track you happen to like)
-2. Produce a spectrogram that **clearly visualizes** the argument for that section
-3. Be available as **lossless audio** (WAV or FLAC, ideally from the original master rather than a streaming rip)
-4. Have a **clean representative segment** of 15-30 seconds you can isolate for animation
-
-## Section 3: Acoustic Baseline
-
-### Candidates
-
-| Track | Composer/Performer | Notes |
-|-------|---------|-------|
-| Passacaglia and Fugue in C minor (BWV 582) | J.S. Bach | Pipe organ, ideally a modern recording on a large instrument |
-| Symphony No. 5, opening | Beethoven | Strong contrabass writing, well-known reference |
-| Symphony No. 9, scherzo | Beethoven | Heavy use of low strings and timpani |
-| Symphony No. 3 ("Eroica"), funeral march | Beethoven | Sustained low writing |
-
-### Selection Status
-
-- [x] Bach organ piece selected: Passacaglia and Fugue in C minor (BWV 582) — `Bach_Fugue_in_C-minor.wav` acquired, spectrogram generated
-- [ ] Beethoven excerpt selected: _____
-- [ ] Source files acquired and verified lossless
-
-### Argument from this section
-
-There IS bass here, but it floors out around 30-40 Hz, lives in specialized instruments (organ, contrabass), and is structurally subordinate to the harmony rather than centrally foregrounded.
+A good example for this project must:
+1. **Clearly visualize the claim** being made in that section of the script
+2. Be available as **lossless audio** (WAV or FLAC — no streaming rips)
+3. Have a **clean representative segment** of 5–15 seconds that works in isolation
 
 ---
 
-## Section 4: Rock
+## Section 1: Cold Open
 
-### Candidates
+| Purpose | Example | Notes |
+|---------|---------|-------|
+| Auto-Tune clip (hook) | Future – Mask Off, or Travis Scott, or Migos | ~5 seconds, obviously Auto-Tuned hook |
 
-| Track | Artist | Year | Notes |
-|-------|--------|------|-------|
-| When the Levee Breaks | Led Zeppelin | 1971 | Iconic kick drum sound, foundational reference |
-| Kashmir | Led Zeppelin | 1975 | Heavy bass and drum production |
-| War Pigs | Black Sabbath | 1970 | Heavy low end |
-| Another Brick in the Wall Pt. 2 | Pink Floyd | 1979 | Stadium-era production |
-
-### Selection Status
-
-- [ ] Primary track selected: _____
-- [ ] Optional contrast track (early 60s rock with quieter bass): _____
-- [ ] Source files acquired and verified lossless
-
-### Argument from this section
-
-Rock takes the existing acoustic-instrument frequency range and makes it LOUD and CENTRAL through amplification and recording practice. The floor doesn't move down, but the bass becomes a felt physical presence rather than harmonic support.
+### Status
+- [x] `Future_Mask_off.wav` acquired — usable for cold open Auto-Tune clip
 
 ---
 
-## Section 5: Dub / Electronic
+## Section 2: What the Fourier Transform Is
 
-### Candidates
+| Purpose | Example | Notes |
+|---------|---------|-------|
+| Pure sine tone | Generate with Python/librosa | 440 Hz, 1–2 seconds |
+| Complex waveform demo | Violin sustaining A4 | For contrast with sine |
 
-| Track | Artist | Year | Notes |
-|-------|--------|------|-------|
-| King Tubby Meets Rockers Uptown | Augustus Pablo / King Tubby | 1976 | Canonical early dub |
-| Heavyweight Dub Champion | Scientist | 1980 | Pure dub showcase |
-| Tracks from "Super Ape" | Lee "Scratch" Perry | 1976 | Classic Black Ark production |
-| Untrue (album cuts) | Burial | 2007 | Modern descendant for lineage gesture |
-
-### Selection Status
-
-- [ ] Primary dub track selected: _____
-- [ ] Optional descendant track (techno or dubstep) for forward-gesture: _____
-- [ ] Source files acquired and verified lossless
-
-### Argument from this section
-
-The aesthetic break: synthesizer/electronic processing and sound system culture push the floor BELOW the acoustic limit, into sub-30 Hz territory, and treat that territory as primary content rather than support. The bass is the song.
+### Status
+- [ ] Sine tone — can be generated programmatically, no file needed
+- [ ] Violin A4 isolated sample — search freesound.org or university sample libraries
 
 ---
 
-## Section 6: Hip-Hop
+## Section 3: Acoustic Timbre
 
-### Candidates
+| Purpose | Example | Notes |
+|---------|---------|-------|
+| Violin sustained note | Violin playing A4 or similar | Need clean, isolated note |
+| Flute sustained note | Flute playing A4 or similar | Need clean, isolated note |
+| Piano sustained note | Piano playing A4 | Need clean, isolated note |
 
-| Track | Artist | Year | Notes |
-|-------|--------|------|-------|
-| Mask Off | Future | 2017 | Iconic 808, prominent sub-bass |
-| Fuck Up Some Commas | Future | 2014 | Clean 808 signature |
-| March Madness | Future | 2015 | DS2-era spectral aggression |
-| Tracks from DS2 | Future | 2015 | Album-level option |
+### Status
+- [ ] Violin sample acquired: _____
+- [ ] Flute sample acquired: _____
+- [ ] Piano sample acquired: _____
 
-### Selection Status
+### Notes
+University sample libraries (UIOWA Musical Instrument Samples) are ideal here — they have clean isolated notes for every instrument, free to use.
 
-- [x] Primary Future track selected: Mask Off (2017) — `Future_Mask_off.wav` acquired, spectrogram generated, bimodal signature confirmed
-- [ ] Optional historical 808 reference (early hip-hop): _____
-- [ ] Source files acquired and verified lossless
+---
 
-### Argument from this section
+## Section 4: The Pivot and Synthesis
 
-Hip-hop inherits dub's low-end aesthetic via the drum machine and develops it into a genre-defining bimodal spectral signature: heavy sub-bass (the 808) + vocal range, with relatively empty space between. This shape is genuinely new in music history.
+| Purpose | Example | Notes |
+|---------|---------|-------|
+| Early Moog sound | Wendy Carlos – *Switched-On Bach* excerpt | ~5 seconds of any recognizable Moog patch |
+| DX7 / FM synthesis | 80s pop with obvious DX7 — Whitney Houston, A-ha, Hall & Oates | The electric piano or bass patch |
+| Contemporary synth | Daft Punk, The Weeknd, or similar | Shows lineage continues |
+
+### Status
+- [ ] Moog example acquired: _____
+- [ ] DX7 example acquired: _____
+- [ ] Contemporary synth example acquired: _____
+
+---
+
+## Section 5: Sampling and Digital Manipulation
+
+| Purpose | Example | Notes |
+|---------|---------|-------|
+| Sampled hip-hop track | De La Soul, A Tribe Called Quest, or contemporary trap | Shows sampling in use |
+| Clean vocal | Any clean unprocessed vocal phrase | For before/after Auto-Tune contrast |
+| Auto-Tuned vocal | Same or matching phrase with heavy Auto-Tune | T-Pain era or contemporary |
+
+### Status
+- [ ] Sampled hip-hop example acquired: _____
+- [ ] Vocal pair (clean + Auto-Tuned) acquired: _____
 
 ---
 
 ## Acquisition Notes
 
-You mentioned access through Columbia. Some likely sources:
-- **Columbia Music Library** (Dodge Hall) — physical collections including LPs
-- **Naxos Music Library** (via Columbia subscription) — strong on classical
-- **Alexander Street Press** (via Columbia subscription) — has jazz, popular, and world music
-- **Smithsonian Folkways** (via Columbia subscription) — possibly relevant for dub/reggae
-
-For tracks not available through institutional access, purchasing from Bandcamp or HDtracks gets you actual lossless files rather than streaming derivatives.
+- **UIOWA Musical Instrument Samples** (freemiva.org) — best source for isolated acoustic instrument notes (violin, flute, piano)
+- **Freesound.org** — community samples, check licenses
+- **Columbia Music Library / Naxos** — for Wendy Carlos and classical recordings
+- **Bandcamp / HDtracks** — lossless purchases for pop/electronic examples where needed
 
 ## Testing Workflow
 
-Once you have candidate WAVs in `audio/raw/`:
+Once WAVs are in `audio/raw/`:
 
 ```bash
-# Normalize all candidates
+# Normalize and compute spectrograms
 python analysis/normalize_loudness.py
-
-# Compute spectrograms for all candidates
 python analysis/compute_spectrograms.py
 
-# Generate side-by-side preview PNGs
+# Generate preview PNGs
 python analysis/generate_previews.py
 
-# Look at the previews in analysis/previews/ and decide
+# Animate a segment
+python matplotlib_fallback/animate_spectrogram.py <track_name> <start_sec> <end_sec>
 ```
-
-After selection, copy or symlink the chosen tracks into `audio/canonical/` and update this document with final choices.
