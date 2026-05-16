@@ -33,7 +33,7 @@ SR         = 44100
 FPS        = 30
 TRANS_SECS = 2.0
 AUDIO_DIR  = Path("audio/normalized")
-OUTPUT_DIR = Path("output")
+OUTPUT_DIR = Path("output/resynthesis")
 
 
 def parse_args():

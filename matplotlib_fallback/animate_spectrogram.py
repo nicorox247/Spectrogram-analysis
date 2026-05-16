@@ -15,7 +15,7 @@ import librosa.display
 AUDIO_DIR = Path("audio/normalized")
 
 DATA_DIR = Path("analysis/spectrogram_data")
-OUTPUT_DIR = Path("output")
+OUTPUT_DIR = Path("output/spectrogram")
 
 F_MIN = 0
 F_MAX = 17000
