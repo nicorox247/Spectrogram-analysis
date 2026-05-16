@@ -18,7 +18,7 @@ A good example for this project must:
 | Auto-Tune clip (hook) | Future – Mask Off, or Travis Scott, or Migos | ~5 seconds, obviously Auto-Tuned hook |
 
 ### Status
-- [x] `Future_Mask_off.wav` acquired — usable for cold open Auto-Tune clip
+- [x] `Future_Mask_off.wav` acquired — usable for cold open Auto-Tune clip (use segment 0–15s)
 
 ---
 
@@ -31,7 +31,7 @@ A good example for this project must:
 
 ### Status
 - [ ] Sine tone — can be generated programmatically, no file needed
-- [ ] Violin A4 isolated sample — search freesound.org or university sample libraries
+- [x] `violin_A4.wav` acquired — UIOWA arco ff sulG A4, trimmed to ~1s sustained note
 
 ---
 
@@ -44,12 +44,12 @@ A good example for this project must:
 | Piano sustained note | Piano playing A4 | Need clean, isolated note |
 
 ### Status
-- [ ] Violin sample acquired: _____
-- [ ] Flute sample acquired: _____
-- [ ] Piano sample acquired: _____
+- [x] `violin_A4.wav` acquired — UIOWA arco ff sulG A4, ~1s sustained note, spectrogram + resynthesis animations rendered
+- [ ] Flute A4 — UIOWA: `Flute.vib.ff.A4.stereo.aif` or similar
+- [ ] Piano A4 — UIOWA: `Piano.ff.A4.stereo.aif` or similar
 
 ### Notes
-University sample libraries (UIOWA Musical Instrument Samples) are ideal here — they have clean isolated notes for every instrument, free to use.
+UIOWA Musical Instrument Samples has clean isolated notes for every instrument, free to use. Download `.aif`, convert with `ffmpeg -i <file>.aif -ac 1 audio/raw/<name>.wav`, then run the pipeline. **Trim to the sustained portion only** — the FFT averages over the whole clip, so attack and decay phases degrade reconstruction quality.
 
 ---
 

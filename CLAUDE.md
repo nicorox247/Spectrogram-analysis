@@ -56,7 +56,7 @@ spectral-history/
 - Frequency scale: log
 - Display range: 20 Hz to 8000 Hz
 - dB floor: -80 dB (clipped)
-- Color map: `magma`
+- Color map: `cividis` (dark navy blue → yellow)
 
 **Loudness normalization is required.** Use `pyloudnorm` to normalize all tracks to -23 LUFS before computing spectrograms. Without this, comparisons are dishonest because louder masters look spectrally denser regardless of actual content.
 
@@ -78,7 +78,15 @@ Manim is used for showpiece moments only:
 1. The "what is a spectrogram" explanatory section (waveform → FFT → spectrogram morphing)
 2. The final side-by-side comparison of all four tracks
 
-Routine "spectrogram with sweeping playhead" sections use matplotlib `FuncAnimation` exported as MP4, then composited in the video editor. This is faster to iterate and less risky than rendering everything in manim.
+Routine "spectrogram with sweeping playhead" sections use `matplotlib_fallback/animate_spectrogram.py` exported as MP4, then composited in the video editor.
+
+A second animation type — `matplotlib_fallback/animate_resynthesis.py` — shows additive resynthesis: individual sine wave components rendered as scrolling oscillating waves with their sum below. Used for Sections 2, 3, and 4. Key CLI args:
+- `--k`: number of components for versioned segments (default 30)
+- `--n`: number of progressive versions (default 3)
+- `--window`: scrolling window width in seconds (default 0.02 — narrow enough to see individual cycles)
+- `--k_close`: components for the closing sum-only segment (default 50, use 150+ for instrument fidelity)
+
+Example: `python matplotlib_fallback/animate_resynthesis.py violin_A4 0 1.0 --k 20 --n 3 --window 0.02 --k_close 150`
 
 ## What "Done" Looks Like
 
@@ -97,9 +105,20 @@ Routine "spectrogram with sweeping playhead" sections use matplotlib `FuncAnimat
 - Don't try to fully animate every spectrogram in manim — fall back to matplotlib for routine cases
 - Don't introduce the synthesis/reverse-FT concept before Section 4 — the dramatic reveal depends on the viewer not seeing it coming
 
+## Audio Files Acquired
+
+| File | Source | Notes |
+|------|--------|-------|
+| `Future_Mask_off.wav` | YouTube rip | Cold open Auto-Tune clip |
+| `Bach_Fugue_in_C-minor.wav` | — | Early pipeline test, not in final script |
+| `violin_A4.wav` | UIOWA Musical Instrument Samples | Violin arco ff sulG A4, trimmed to sustained note only (~1s) |
+| `violin_c_note.wav` | YouTube lesson clip | C note, trimmed 55–57s |
+
+Still needed: flute A4, piano A4, Moog/Wendy Carlos clip, DX7 patch, sampled hip-hop, vocal pair (clean + Auto-Tuned).
+
 ## Open Questions / Decisions Pending
 
-- Final audio example selection per section (bar is "clearly illustrates the point," not "canonically iconic")
+- Remaining audio example acquisition (flute, piano, synth, sampling, vocal pair)
 - Voiceover recording setup (room, mic)
 
 ## When in Doubt

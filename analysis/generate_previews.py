@@ -17,7 +17,7 @@ PREVIEW_DIR = Path("analysis/previews")
 # Display parameters — these match the values that will be used in the final video
 F_MIN = 20
 F_MAX = 8000
-CMAP = "magma"
+CMAP = "cividis"
 
 
 def render_preview(npy_path: Path, json_path: Path, output_path: Path) -> None:

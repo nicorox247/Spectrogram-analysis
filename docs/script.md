@@ -60,7 +60,7 @@ VOICEOVER:
 VOICEOVER:
 > ...looks like this. Same note. Vastly more complex shape. That complexity is what makes a violin sound like a violin and not a sine wave generator.
 
-`[VISUAL: Animation — multiple sine waves of different frequencies stacking and combining to produce the complex waveform]`
+`[VISUAL: animate_resynthesis.py — violin_A4, progressive version reveal. Start at v1 (fewest components, ~6). The individual sine waves scroll left as oscillating lines, each at a different frequency and speed. The cyan sum wave shows below. Cut between versions as voiceover progresses, ending on the full reconstruction closing.]`
 
 **VOICEOVER:**
 > **Here's Fourier's insight: every complex sound, no matter how messy it looks, can be broken down into a sum of pure sine waves at different frequencies and intensities.** A violin note isn't one sound. It's many sine waves layered together — a fundamental tone plus its harmonics plus a little noise from the bow on the string.
@@ -98,12 +98,13 @@ VOICEOVER:
 > For most of music history, the sounds available to us were the sounds of physical objects. Wood, strings, metal, breath. Let's look at three of them.
 
 `[AUDIO: 3 seconds of a violin sustaining a note]`
-`[VISUAL: Spectrogram of the violin note, with playhead sweeping in real time]`
+`[VISUAL: animate_spectrogram.py — violin_A4, full duration. Spectrogram sweeps in real time showing the bright harmonic stack.]`
 
 VOICEOVER:
 > A violin playing a sustained A — 440 Hz. The kind of note that anchors a Beethoven slow movement, or a Mahler symphony. Watch the spectrogram. There's a bright line at the bottom — that's the fundamental, the 440. But look above it. 880 Hz. 1320. 1760. 2200. 2640. These are the violin's *harmonics* — integer multiples of the fundamental, all sounding at once.
 
 `[VISUAL: Highlight a few harmonic lines with their frequency values]`
+`[VISUAL: Cut to animate_resynthesis.py — violin_A4, closing segment only (150 components, sum wave). Shows the reconstructed waveform scrolling — this is what those stacked harmonics sound like when reassembled.]`
 
 VOICEOVER:
 > The pattern of which harmonics are loud and which are quiet — that's what makes a violin sound like a violin and not a flute or a trumpet.
@@ -149,7 +150,7 @@ VOICEOVER:
 > In 1965, two mathematicians named James Cooley and John Tukey published an algorithm called the Fast Fourier Transform — the FFT. They didn't change Fourier's math. They just made it dramatically faster. Fast enough to run on a computer in real time.
 > [SOURCE: Heideman, Johnson, Burrus, "Gauss and the History of the Fast Fourier Transform," 1985]
 
-`[VISUAL: Animation — the spectrogram of the violin from earlier, then arrows showing the process running in reverse: harmonics being selected, combined, producing a new waveform]`
+`[VISUAL: animate_resynthesis.py — violin_A4, full video. Begin with v1 (fewest components — thin, ghostly sound). Progress through versions as voiceover builds. The viewer watches and hears the violin emerge from pure sine waves. End on the closing (150-component sum). This IS the dramatic reveal — the same animation from Section 2 is now reframed as construction, not just decomposition.]`
 
 **VOICEOVER:**
 > **And here's the moment everything changes. If the Fourier transform can take a sound and break it down into pure sine waves — then in principle, you can run the process in reverse. You can start with sine waves, combine them in whatever amounts you want, and *build* a sound that's never existed before.**

@@ -19,7 +19,7 @@ OUTPUT_DIR = Path("output")
 
 F_MIN = 0
 F_MAX = 17000
-CMAP  = "magma"
+CMAP  = "cividis"
 FPS   = 30
 
 

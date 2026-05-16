@@ -12,9 +12,11 @@ The schedule below reflects the revised project. Key sequencing change: the scri
 
 ## Day 1: May 7
 
-- [ ] Acquire isolated acoustic instrument samples: violin A4, flute A4, piano A4 (UIOWA sample library is the fastest source)
+- [x] `violin_A4.wav` acquired from UIOWA, trimmed to sustained note, normalized, spectrogram computed
+- [x] Resynthesis animation pipeline built (`animate_resynthesis.py`) — scrolling window, progressive component reveal, high-fidelity closing
+- [ ] Acquire flute A4 and piano A4 from UIOWA
 - [ ] Acquire synthesis examples: one Moog/Wendy Carlos clip, one DX7 patch clip
-- [ ] Read Sethares chapters 1–3 and Chowning (1973) paper — these are the two sources most directly cited in the video
+- [ ] Read Sethares chapters 1–3 and Chowning (1973) paper
 
 ## Day 2: May 8
 
@@ -29,8 +31,10 @@ The schedule below reflects the revised project. Key sequencing change: the scri
 ## Day 3: May 9
 
 - [ ] Build the manim Section 2 animation: waveform → FFT → spectrogram explainer (this is the most complex scene — do it early)
-- [x] Matplotlib animation template complete (reveal effect, CLI args, QuickTime H.264, audio baked in)
-- [ ] Render spectrogram animations for Section 3 (violin, flute, piano)
+- [x] Spectrogram animation template complete (`animate_spectrogram.py` — cividis colormap, reveal effect, CLI args, QuickTime H.264, audio baked in)
+- [x] Resynthesis animation template complete (`animate_resynthesis.py` — scrolling window, plasma red→yellow colormap, progressive versions, sum-only closing)
+- [x] Violin A4 spectrogram + resynthesis animations rendered
+- [ ] Render spectrogram + resynthesis animations for flute A4 and piano A4
 - [ ] Render spectrogram animations for Section 4 (Moog, DX7, contemporary synth)
 
 ## Day 4: May 10
