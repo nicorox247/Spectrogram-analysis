@@ -81,10 +81,10 @@ def build_audio(waves_audio, waves_audio_close, versions_m, k, k_close):
     """Full audio track: each segment uses its own reconstruction; transitions are silence."""
     silence = np.zeros(int(TRANS_SECS * SR), dtype=np.float32)
 
-    opening_audio = waves_audio[:k].sum(axis=0)
     closing_audio = waves_audio_close[:k_close].sum(axis=0)
 
-    parts = [opening_audio, silence]
+    # Timeline: v1, silence, v2, silence, ..., vN, silence, closing
+    parts = []
     for m in versions_m:
         parts += [waves_audio[:m].sum(axis=0), silence]
     parts.append(closing_audio)
@@ -229,7 +229,9 @@ def animate(track, t_start, t_end, k, n, window_secs, k_close):
     k_max      = max(k, k_close)
     components = extract_components(y, k_max)
 
-    versions_m = [max(1, int(np.floor((i / n) * k))) for i in range(1, n + 1)]
+    versions_m = [max(1, round(k ** (i / n))) for i in range(1, n + 1)]
+    versions_m[0] = 1
+    versions_m[-1] = k
     print(f"Components per version: {versions_m} (out of k={k}), closing: {k_close}")
 
     # Audio-rate waves

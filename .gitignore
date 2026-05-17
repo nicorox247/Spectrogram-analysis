@@ -6,8 +6,7 @@ __pycache__/
 .Python
 
 # Audio (too large for git)
-audio/raw/
-audio/normalized/
+audio/
 
 # Generated data
 analysis/spectrogram_data/

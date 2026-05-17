@@ -1,0 +1,22 @@
+{
+  "_note": "Acoustic instruments (Sections 2-3) use both pipelines. Synth/vocal/sampled tracks (Sections 4-5) use spectrogram only.",
+
+  "spectrogram": [
+    {"track": "Future_Mask_off",     "start": 0,   "end": 15.0, "_section": 1},
+    {"track": "violin_A4",           "start": 0,   "end": 1.0,  "_section": "2-3"},
+    {"track": "flute_A4",            "start": 0,   "end": 2.4,  "_section": 3},
+    {"track": "piano_A4",            "start": 0,   "end": 3.0,  "_section": 3},
+    {"track": "moog",                "start": 0,   "end": 5.0,  "_section": 4, "_status": "file not yet acquired"},
+    {"track": "dx7",                 "start": 0,   "end": 5.0,  "_section": 4, "_status": "file not yet acquired"},
+    {"track": "synth_contemporary",  "start": 0,   "end": 5.0,  "_section": 4, "_status": "file not yet acquired"},
+    {"track": "hiphop_sampled",      "start": 0,   "end": 5.0,  "_section": 5, "_status": "file not yet acquired"},
+    {"track": "vocal_clean",         "start": 0,   "end": 3.0,  "_section": 5, "_status": "file not yet acquired"},
+    {"track": "vocal_autotune",      "start": 0,   "end": 3.0,  "_section": 5, "_status": "file not yet acquired"}
+  ],
+
+  "resynthesis": [
+    {"track": "violin_A4", "start": 0, "end": 1.0, "k": 20, "n": 3, "window": 0.02, "k_close": 150, "_section": "2-3"},
+    {"track": "flute_A4",  "start": 0, "end": 2.4, "k": 20, "n": 3, "window": 0.02, "k_close": 150, "_section": 3},
+    {"track": "piano_A4",  "start": 0, "end": 3.0, "k": 20, "n": 3, "window": 0.02, "k_close": 150, "_section": 3}
+  ]
+}
