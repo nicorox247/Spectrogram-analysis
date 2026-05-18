@@ -42,7 +42,30 @@ VOICEOVER:
 
 ## Section 2: What the Fourier Transform Is (3.5 min, ~525 words)
 
-### 2a — The intuitive math (~2 min)
+### 2a — A little history (~1 min)
+
+`[B-ROLL: Portrait of Joseph Fourier,]`
+
+### 2a — A little history (~1 min)
+
+`[B-ROLL: Portrait of Joseph Fourier — the 1820s lithograph]`
+
+### 2a — A little history (~1 min)
+
+`[B-ROLL: Portrait of Joseph Fourier — the 1820s lithograph]`
+
+VOICEOVER:
+
+> This is Joseph Fourier, and his life was almost as strange as the math he invented. Born in 1768 to a French tailor and orphaned by age nine, he survived an education at the hands of Benedictine monks, narrowly escaped the guillotine during the Reign of Terror, and was then plucked from a quiet teaching career to follow Napoleon to Egypt as his chief scientific advisor — where he spent three years cataloging ancient ruins and running the institute Napoleon founded in Cairo.
+
+`[B-ROLL: Image of his 1822 treatise, *Théorie analytique de la chaleur*]`
+
+> When he finally returned to France, Fourier turned his attention to a question that scientists of his era genuinely could not answer: how does heat move? Not in some abstract sense — but specifically, how does the Earth itself stay warm? Geologists were beginning to suspect the planet was unimaginably old, and that meant the Earth, if it had started as a molten body, should have cooled to a frozen ball long ago. Why hadn't it? How does heat flow through a solid object the size of a planet, or for that matter, through a bar of iron in a laboratory? Fourier spent more than a decade on this problem, and in 1822 he published his answer in a treatise containing a mathematical idea so strange that the leading mathematician of the day, Joseph-Louis Lagrange, refused to accept it.
+
+> The idea was this: any pattern, no matter how complicated, can be built out of simple waves added together. Fourier was using it to describe how temperature spreads through matter. But the math turned out to be so general that it applied to almost anything that oscillates or varies — light, sound, electricity, waves of any kind. For most of the next century, it lived in textbooks and physics labs. Beautiful, useful, but not exactly fast. These calculations were done by hand, and they took forever.
+
+> So before we talk about what the transform does, let's understand how we mathematically model sound.
+### 2b — The math (~2 min)
 
 `[VISUAL: A simple sine wave drawn on screen, oscillating]`
 
@@ -60,30 +83,28 @@ VOICEOVER:
 VOICEOVER:
 > ...looks like this. Same note. Vastly more complex shape. That complexity is what makes a violin sound like a violin and not a sine wave generator.
 
-`[VISUAL: animate_resynthesis.py — violin_A4, progressive version reveal. Start at v1 (fewest components, ~6). The individual sine waves scroll left as oscillating lines, each at a different frequency and speed. The cyan sum wave shows below. Cut between versions as voiceover progresses, ending on the full reconstruction closing.]`
-
 **VOICEOVER:**
-> **Here's Fourier's insight: every complex sound, no matter how messy it looks, can be broken down into a sum of pure sine waves at different frequencies and intensities.** A violin note isn't one sound. It's many sine waves layered together — a fundamental tone plus its harmonics plus a little noise from the bow on the string.
+> **Here's Fourier's insight: every complex sound, no matter how messy it looks, can be broken down into a sum of pure sine waves at different frequencies and intensities.**
 
-`[VISUAL: Transition to a spectrogram of the violin note]`
-
-VOICEOVER:
-> A spectrogram is a tool that shows you those component frequencies directly. Time goes left to right. Frequency goes bottom to top. Brightness shows intensity. When you see horizontal lines stacked on top of each other, you're seeing the harmonics that make up a single musical note.
-
-`[VISUAL: Highlight the harmonic stack with frequency labels]`
+`[VISUAL: Manim — the Fourier transform equation appears. F(f) = ∫ x(t) e^{-2πift} dt. Terms highlight one by one as voiceover explains them.]`
 
 VOICEOVER:
-> The Fourier transform is the math that takes a sound and gives you this picture. It's the bridge between what we hear and what's actually inside the sound.
+> This is the Fourier transform. It takes a signal — x of t, your sound wave over time — and for every possible frequency f, it asks: how much of that frequency is present? The integral is essentially an average. You multiply your signal against a pure sine wave at frequency f and integrate over time. If the two match, the result is large. If they don't, the contributions cancel and the result is near zero. Do that for every frequency and you get a complete map — a fingerprint — of everything inside the sound.
+
+> In practice, a computer doesn't check every frequency continuously. It checks a discrete set of evenly spaced frequency bins — that's the *discrete* Fourier transform. The width of each bin is determined by how long your audio clip is. A longer clip gives you narrower bins and finer frequency resolution.
+
+`[VISUAL: animate_resynthesis.py — violin_A4, progressive version reveal. Individual sine waves scroll left as oscillating lines, sum below. Cut through versions as voiceover progresses.]`
+
+VOICEOVER:
+> A violin note isn't one sound. It's many sine waves layered together — a fundamental tone plus its harmonics. The Fourier transform finds each one.
+
+`[VISUAL: animate_spectrogram.py — violin_A4. Spectrogram sweeps in real time.]`
+
+VOICEOVER:
+> A spectrogram is a tool that shows you those component frequencies directly. Time goes left to right. Frequency goes bottom to top. Brightness shows intensity. Those bright horizontal lines are the harmonics that make up a single musical note.
 > [SOURCE: Sethares, *Tuning, Timbre, Spectrum, Scale*, intro chapters]
 
-### 2b — A little history (~1.5 min)
-
-`[B-ROLL: Portrait of Joseph Fourier, image of his 1822 treatise]`
-
-VOICEOVER:
-> Fourier published this idea in 1822. He wasn't thinking about music at all. He was a French mathematician trying to understand how heat propagates through solid objects — how a hot metal bar cools down over time.
-
-> But the math turned out to be so general that it applied to almost anything that oscillates or varies. Light, sound, electricity, waves of any kind. For most of the next century, it lived in math textbooks and physics labs. Beautiful, useful, but not exactly fast — these calculations were done by hand, and they took forever.
+### 2c — Microscope framing (~0.5 min)
 
 **VOICEOVER:**
 > **For now, let's just use it as a microscope. Let's use the Fourier transform to look at what acoustic music actually sounds like.**
@@ -277,7 +298,7 @@ VOICEOVER:
 | Section | Duration | Word target |
 |---------|---------:|------------:|
 | 1. Cold open | 1.0 min | 150 |
-| 2. What the FT is | 3.5 min | 525 |
+| 2. What the FT is | 3.5 min | 525 (2a: history, 2b: math + equation, 2c: framing) |
 | 3. Acoustic timbre | 4.0 min | 600 |
 | 4. Pivot + Synthesis | 5.5 min | 825 |
 | 5. Sampling & manipulation | 3.0 min | 450 |
