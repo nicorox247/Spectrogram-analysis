@@ -149,7 +149,7 @@ VOICEOVER:
 > [SOURCE: Sethares on the harmonic series and timbre]
 
 VOICEOVER:
-> Every instrument in the orchestra has a fingerprint like this. The buzzy edge of an oboe. The mellow round of a French horn. The metallic ping of a triangle. And for thousands of years, this palette of timbres was *fixed*. It was determined by the physics of vibrating strings, columns of air, stretched membranes. Stradivari refined the violin in the 1700s. Sébastien Érard refined the piano in the 1800s. Every composer who ever wrote for orchestra — Bach, Mozart, Brahms, Stravinsky — worked within the available palette of physical objects.
+> Every instrument in the orchestra has a fingerprint like this. The warm melody of a lute, The blare of a trumpet, the classic sound of the violin or piano. And for thousands of years, this palette of timbres was *fixed*, or at least, limited by the instruments' physical componets. It was determined by the physics of vibrating strings, columns of air, stretched membranes. Stradivari refined the violin in the 1700s. Sébastien Érard refined the piano in the 1800s. Every composer who ever wrote for orchestra — Bach, Mozart, Brahms, Stravinsky — worked within the available palette of physical objects.
 
 > The available timbres were the available materials. You couldn't *make* a new instrument any more than you could make a new color out of thin air.
 
@@ -167,14 +167,42 @@ VOICEOVER:
 
 `[B-ROLL: Photos of early IBM computers, the kind Cooley and Tukey would have worked with]`
 
+### 4a — The Pivot (~1 min)
+
+`[VISUAL: Section title — "Part 2: Making Sound from Math"]`
+
+`[B-ROLL: Cold War-era imagery — seismograph readouts, photos of early IBM mainframes, footage of nuclear test detection equipment]`
+
+### 4a — The Pivot (~1.25 min)
+
+`[VISUAL: Section title — "Part 2: Making Sound from Math"]`
+
+`[B-ROLL: Cold War-era imagery — seismograph readouts, photos of early IBM mainframes, footage of nuclear test detection equipment]`
+
 VOICEOVER:
-> In 1965, two mathematicians named James Cooley and John Tukey published an algorithm called the Fast Fourier Transform — the FFT. They didn't change Fourier's math. They just made it dramatically faster. Fast enough to run on a computer in real time.
+> By the early 1960s, the United States had a problem. The Cold War was on, the Soviets were testing nuclear weapons underground, and the only way to detect those tests from outside the country was by analyzing seismic data — vibrations in the Earth picked up by sensors thousands of miles away. Nuclear explosions produce a distinct frequency signature, different from a natural earthquake. But extracting that signature meant running Fourier analysis on enormous streams of seismic data, and the brute-force method was hopelessly slow.
+
+> Here's the scale of the problem. The classical way of computing a Fourier transform — checking every frequency against every time sample — scales with the square of the signal length. For a one-second clip of CD-quality audio, that's about two billion operations. On 1960s computers, this was a non-starter for anything close to real time.
+
+`[B-ROLL: Photos of James Cooley and John Tukey, image of the 1965 paper]`
+
+VOICEOVER:
+> In 1965, a Princeton statistician named John Tukey worked out a shortcut during a meeting of President Kennedy's Science Advisory Committee. He took it to James Cooley at IBM, who implemented it. They called it the Fast Fourier Transform — the FFT. They didn't change what Fourier's transform computes. They radically changed how it's computed, exploiting symmetries in the math to avoid massive redundant work. For that same one-second audio clip, the FFT needs about a million operations instead of two billion. A two-thousand-fold speedup. The difference between minutes and milliseconds.
 > [SOURCE: Heideman, Johnson, Burrus, "Gauss and the History of the Fast Fourier Transform," 1985]
+
+`[VISUAL: A simple two-panel animation. Left panel: a complex waveform → arrow pointing right → a stack of pure sine waves (labeled "analysis"). Right panel: a stack of pure sine waves → arrow pointing right → a complex waveform (labeled "synthesis"). The arrows are the same color, emphasizing they're the same operation in opposite directions.]`
+
+VOICEOVER:
+> And here's the part that matters for music. The Fourier transform works in both directions. Going one way, you take a sound and break it down into the sine waves that make it up — that's analysis, the microscope we've been using. Going the other way, you start with sine waves, decide how much of each one you want, and add them together to produce a waveform — that's synthesis. Same math. Same arithmetic. Just run in reverse.
+
+> Both directions had the same problem. Both were hopelessly slow by hand or on early computers — because generating audio means producing tens of thousands of numbers per second of sound, and analyzing audio means processing them at the same rate. The FFT cracked both at once. The moment you could *analyze* a signal in real time, you could also *generate* one in real time. Fourier math could finally run at the speed of hearing.
 
 `[VISUAL: animate_resynthesis.py — violin_A4, full video. Begin with v1 (fewest components — thin, ghostly sound). Progress through versions as voiceover builds. The viewer watches and hears the violin emerge from pure sine waves. End on the closing (150-component sum). This IS the dramatic reveal — the same animation from Section 2 is now reframed as construction, not just decomposition.]`
 
+> Now that the computational aspect of fourier transforms had been made trivial, this allowed for innovation in real-time digital applications. The analog version of the spectrogram we were using earlier became digitized. But another very interesting idea came up. What happens when we reverse the transform?
+
 **VOICEOVER:**
-> **And here's the moment everything changes. If the Fourier transform can take a sound and break it down into pure sine waves — then in principle, you can run the process in reverse. You can start with sine waves, combine them in whatever amounts you want, and *build* a sound that's never existed before.**
+> **If the Fourier transform can take a sound and break it down into pure sine waves — then in principle, you can run the process in reverse. You can start with sine waves, combine them in whatever amounts you want, and *build* a sound that's never existed before.**
 
 > Timbre stops being a property of physical objects. It becomes something you can design.
 
@@ -197,14 +225,21 @@ VOICEOVER:
 `[B-ROLL: Photos of the Yamaha DX7, 80s pop production]`
 
 VOICEOVER:
-> By 1983, the Yamaha DX7 took this idea mainstream. The DX7 used a technique called FM synthesis — short for frequency modulation — which is, no exaggeration, *literally* Fourier mathematics applied to making sounds. You take one sine wave and use it to modulate the frequency of another sine wave, and out pops a complex spectrum you can shape with precision.
+> If the Moog sculpted sound by *removing* harmonics from a rich waveform, the next generation of synthesizers did the opposite: they generated complex spectra directly, starting from nothing but pure sine waves. The breakthrough came in the early 1970s at Stanford, where a composer named John Chowning was experimenting with vibrato. He'd take a sine wave and modulate its pitch with another sine wave to produce a wobble — and he noticed that when he pushed the modulation rate up into the audio range, fast enough that you couldn't hear the individual wobbles anymore, the sound stopped wobbling and started transforming. New frequencies appeared. Bright, metallic, bell-like tones that no acoustic instrument could produce.
+
+> Chowning had stumbled onto something the math of Fourier analysis predicts exactly. When you modulate one sine wave with another, the result isn't a wobble — it's a precise, calculable series of new frequencies arranged around the original tone, with amplitudes determined by the modulation depth. Push the depth harder and you summon more harmonics. Change the ratio between the two sine waves and you change which harmonics appear. You can design a target spectrum with pencil and paper, then dial up the parameters that produce it. This technique became known as FM synthesis — frequency modulation — and it's one of the most direct applications of Fourier theory in any consumer technology ever built.
 > [SOURCE: Chowning, "The Synthesis of Complex Audio Spectra by Means of Frequency Modulation," 1973]
 
-`[AUDIO: 5 seconds of a recognizable DX7 patch — the famous "electric piano" or "bass" sound]`
-`[VISUAL: Spectrogram of the DX7 patch]`
+`[B-ROLL: The Yamaha DX7, close-up shots of its interface]`
 
 VOICEOVER:
-> If you grew up listening to 80s pop, this is the sound of your childhood. Whitney Houston's "Greatest Love of All." The keyboard riffs in countless ballads. That distinctive bright, glassy, slightly artificial shimmer. That sound *is* Fourier math.
+> Stanford licensed Chowning's work to Yamaha. And in 1983, Yamaha released the DX7 — the first commercially successful digital synthesizer, built around six sine-wave operators that could modulate each other in different configurations. It sold over 200,000 units, which for a synthesizer is astonishing.
+
+`[AUDIO: 5 seconds of a recognizable DX7 patch — the famous "electric piano" or "bass" sound]`
+`[VISUAL: Spectrogram of the DX7 patch, showing the characteristic non-harmonic frequency content]`
+
+VOICEOVER:
+> If you grew up listening to 80s pop, this is the sound of your childhood. Whitney Houston's "Greatest Love of All." The electric piano in nearly every power ballad of the decade. The slap-bass synths on countless TV themes. That distinctive bright, glassy shimmer — that's FM synthesis. That's pure Fourier mathematics, shipped as a piece of consumer hardware, played by every keyboard player from Tokyo to Nashville.
 
 ### 4d — Contemporary synths (~1.25 min)
 
