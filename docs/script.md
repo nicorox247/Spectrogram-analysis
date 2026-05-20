@@ -161,17 +161,6 @@ VOICEOVER:
 
 ## Section 4: The Pivot and Synthesis (5.5 min, ~825 words)
 
-### 4a — The Pivot (~45 sec)
-
-`[VISUAL: Section title — "Part 2: Making Sound from Math"]`
-
-`[B-ROLL: Photos of early IBM computers, the kind Cooley and Tukey would have worked with]`
-
-### 4a — The Pivot (~1 min)
-
-`[VISUAL: Section title — "Part 2: Making Sound from Math"]`
-
-`[B-ROLL: Cold War-era imagery — seismograph readouts, photos of early IBM mainframes, footage of nuclear test detection equipment]`
 
 ### 4a — The Pivot (~1.25 min)
 
@@ -270,7 +259,7 @@ VOICEOVER:
 `[VISUAL: Spectrogram with sampled elements identified]`
 
 VOICEOVER:
-> Hip-hop is, in a sense, the first genre built entirely around this idea. The drum break from an old funk record, isolated, looped, manipulated, becomes the backbone of a new song. The history of recorded music gets recycled into new music. And the tool that makes this possible — that lets you cleanly cut, stretch, and pitch-shift digital audio — is Fourier analysis.
+> Hip-hop is, in a sense, the first genre built entirely around this idea. Isolate a drum break from an old funk record, loop it, then tune it down, and that becomes the backbone of a new song. The history of recorded music gets recycled into new music. And the tool that lets you cleanly cut, stretch, and pitch-shift digital audio is made possible with  Fourier analysis.
 > [SOURCE: Schloss, *Making Beats*]
 
 `[AUDIO: 3 seconds of an unprocessed vocal]`
@@ -317,7 +306,7 @@ VOICEOVER:
 
 > Cooley and Tukey, who built the algorithm that made it all practical, were doing applied math for the Cold War. They weren't thinking about music either.
 
-> But every sound from a screen, every drop in a club, every Auto-Tuned hook, every sampled breakbeat — passed through their math. The Fourier transform wasn't designed to change music. It just happened to be the right idea, sitting around for the right amount of time, until the technology caught up and people figured out what it was actually good for.
+> But every sound from a screen, every drop in a club, every Auto-Tuned hook, and every sampled beat passed through his math. The mathematical analysis Fourier came up with wasn't deliberately designed to change music. It just happened to be the right idea, sitting around for the right amount of time, until the technology caught up and people figured out what it was actually good for.
 
 `[VISUAL: Final card with a short tagline]`
 

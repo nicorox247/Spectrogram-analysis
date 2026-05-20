@@ -35,7 +35,7 @@ def to_seconds(t):
 def main():
     args = parse_args()
 
-    out_dir = Path("../")
+    out_dir = Path("../Media/Videos")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # Download full video first
@@ -75,7 +75,9 @@ def main():
         if end is not None:
             duration = (end - (start or 0))
             cmd += ["-t", str(duration)]
-        cmd += ["-c", "copy", str(out_path)]
+        # Re-encode audio to avoid sync loss from keyframe misalignment;
+        # video stream is copied (fast) while audio is re-encoded (accurate).
+        cmd += ["-c:v", "copy", "-c:a", "aac", "-b:a", "192k", str(out_path)]
         print(f"Trimming to {args.start or '0'}s — {args.end or 'end'}...")
         subprocess.run(cmd, check=True)
         tmp_path.unlink()
