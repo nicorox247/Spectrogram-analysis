@@ -84,10 +84,11 @@ def chicago_citation(info: dict) -> str:
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("urls", nargs="+", help="YouTube URLs")
-    p.add_argument("--append", action="store_true",
-                   help="Append citations to docs/bibliography.md")
+    p.add_argument("--out", default="docs/bibliography.md",
+                   help="File to append citations to (default: docs/bibliography.md)")
     args = p.parse_args()
 
+    out_path = Path(args.out)
     citations = []
     for url in args.urls:
         print(f"Fetching: {url}", file=sys.stderr)
@@ -95,18 +96,16 @@ def main():
             info = fetch_metadata(url)
             cite = chicago_citation(info)
             citations.append(cite)
-            print(cite)
-            print()
+            print(f"  OK: {info.get('title', '')[:60]}", file=sys.stderr)
         except Exception as e:
-            print(f"  ERROR: {e}", file=sys.stderr)
+            print(f"  ERROR {url}: {e}", file=sys.stderr)
 
-    if args.append and citations:
-        bib_path = Path(__file__).parent / "bibliography.md"
-        with open(bib_path, "a") as f:
+    if citations:
+        with open(out_path, "a") as f:
             f.write("\n")
             for cite in citations:
                 f.write(f"{cite}\n\n")
-        print(f"Appended {len(citations)} citation(s) to {bib_path}", file=sys.stderr)
+        print(f"\nAppended {len(citations)} citation(s) to {out_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
