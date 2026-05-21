@@ -39,6 +39,10 @@ VOICEOVER:
 > This is the story of how a heat equation became the secret foundation of modern music.
 
 ---
+##
+Take a look at this waveform, let's re-construct it by summing basic components together. 
+
+Now, to be clear, most waveforms are a bit more complex than the 3-component function we just saw. However, the essence of Fourier's big idea, is the same; any waveform, no matter how complex, can be represented by some number of those components summed together.
 
 ## Section 2: What the Fourier Transform Is (3.5 min, ~525 words)
 
@@ -242,6 +246,10 @@ VOICEOVER:
 > **Timbre, which used to be a property of physical objects, became a property of mathematical manipulation. You can edit it. You can copy it. You can save it as a file.**
 
 ---
+
+
+### extra
+The united states wanted to be able to detect soviet nuclear testing by using the fourier Transform, but it was too slow to compute frequency signatures and nuclear testing in real time.
 
 ## Section 5: Sampling and Digital Manipulation (3 min, ~450 words)
 
